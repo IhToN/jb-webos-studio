@@ -10,10 +10,16 @@
     <resource-bundle>messages.WebOSStudio</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
+        <applicationService
+            serviceImplementation="com.atalgaba.jbwebosstudio.settings.AppSettingsState" />
+
+        <applicationConfigurable displayName="WebOS Studio"
+            id="com.atalgaba.ApplicationSettingsConfigurable"
+            instance="com.atalgaba.jbwebosstudio.settings.AppSettingsConfigurable"
+            parentId="tools" />
     </extensions>
 
-    <applicationListeners>
-    </applicationListeners>
+    <applicationListeners></applicationListeners>
     <actions>
         <group icon="/icons/LG_symbol.svg" id="com.atalgaba.jbwebosstudio.actions.GroupedActions"
             popup="true" text="WebOS Studio">
@@ -32,11 +38,11 @@
                 group-id="com.atalgaba.jbwebosstudio.actions.GroupedActions"
                 relative-to-action="generate" />
         </action>
-        <action class="com.atalgaba.jbwebosstudio.actions.AresInstall"
+        <group class="com.atalgaba.jbwebosstudio.actions.AresInstall"
             description="Installs an app on the target device." icon="AllIcons.Actions.Install"
-            id="install" text="Ares Install">
+            id="install" popup="true" text="Ares Install">
             <add-to-group anchor="first"
                 group-id="com.atalgaba.jbwebosstudio.actions.GroupedActions" />
-        </action>
+        </group>
     </actions>
 </idea-plugin>

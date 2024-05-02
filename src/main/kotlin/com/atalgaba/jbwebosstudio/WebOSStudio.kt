@@ -31,11 +31,9 @@ object WebOSStudio : DynamicBundle(BUNDLE) {
 
     @JvmStatic
     fun isWebOSBundleFile(file: VirtualFile?): Boolean {
-        thisLogger().info("Checking file: ${file}")
         if (file == null || !file.isValid || file.isDirectory) {
             return false
         }
-        thisLogger().info("Checking file: ${file.name}")
         return file.name.endsWith(".ipk")
     }
 }
