@@ -1,18 +1,42 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.ihton.jbwebosstudio</id>
-    <name>jb-webos-studio</name>
-    <vendor>ihton</vendor>
+    <id>com.atalgaba.jbwebosstudio</id>
+    <name>WebOS Studio</name>
+    <vendor>ATAlgaba</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.plugins.terminal</depends>
 
-    <resource-bundle>messages.MyBundle</resource-bundle>
+    <resource-bundle>messages.WebOSStudio</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.ihton.jbwebosstudio.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.ihton.jbwebosstudio.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
     </applicationListeners>
+    <actions>
+        <group icon="/icons/LG_symbol.svg" id="com.atalgaba.jbwebosstudio.actions.GroupedActions"
+            popup="true" text="WebOS Studio">
+            <add-to-group anchor="last" group-id="ProjectViewPopupMenu" />
+        </group>
+        <action class="com.atalgaba.jbwebosstudio.actions.AresGenerate"
+            description="Creates a web app from a template." icon="AllIcons.Actions.NewFolder"
+            id="generate" text="Ares Generate">
+            <add-to-group anchor="first"
+                group-id="com.atalgaba.jbwebosstudio.actions.GroupedActions" />
+        </action>
+        <action class="com.atalgaba.jbwebosstudio.actions.AresPackage"
+            description="Creates and analyses an app package file." icon="/icons/package.svg"
+            id="package" text="Ares Package">
+            <add-to-group anchor="after"
+                group-id="com.atalgaba.jbwebosstudio.actions.GroupedActions"
+                relative-to-action="generate" />
+        </action>
+        <action class="com.atalgaba.jbwebosstudio.actions.AresInstall"
+            description="Installs an app on the target device." icon="AllIcons.Actions.Install"
+            id="install" text="Ares Install">
+            <add-to-group anchor="first"
+                group-id="com.atalgaba.jbwebosstudio.actions.GroupedActions" />
+        </action>
+    </actions>
 </idea-plugin>
