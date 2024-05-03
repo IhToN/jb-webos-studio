@@ -19,28 +19,24 @@
             parentId="tools" />
     </extensions>
 
-    <applicationListeners></applicationListeners>
     <actions>
         <group icon="/icons/LG_symbol.svg" id="com.atalgaba.jbwebosstudio.actions.GroupedActions"
             popup="true" text="WebOS Studio">
             <add-to-group anchor="last" group-id="ProjectViewPopupMenu" />
         </group>
         <action class="com.atalgaba.jbwebosstudio.actions.AresGenerate"
-            description="Creates a web app from a template." icon="AllIcons.Actions.NewFolder"
-            id="generate" text="Ares Generate">
+            icon="AllIcons.Actions.NewFolder" id="webos.ares.generate">
             <add-to-group anchor="first"
                 group-id="com.atalgaba.jbwebosstudio.actions.GroupedActions" />
         </action>
-        <action class="com.atalgaba.jbwebosstudio.actions.AresPackage"
-            description="Creates and analyses an app package file." icon="/icons/package.svg"
-            id="package" text="Ares Package">
+        <action class="com.atalgaba.jbwebosstudio.actions.AresPackage" icon="/icons/package.svg"
+            id="webos.ares.package">
             <add-to-group anchor="after"
                 group-id="com.atalgaba.jbwebosstudio.actions.GroupedActions"
-                relative-to-action="generate" />
+                relative-to-action="webos.ares.generate" />
         </action>
         <group class="com.atalgaba.jbwebosstudio.actions.AresInstall"
-            description="Installs an app on the target device." icon="AllIcons.Actions.Install"
-            id="install" popup="true" text="Ares Install">
+            icon="AllIcons.Actions.Install" id="webos.ares.install" popup="true">
             <add-to-group anchor="first"
                 group-id="com.atalgaba.jbwebosstudio.actions.GroupedActions" />
         </group>
