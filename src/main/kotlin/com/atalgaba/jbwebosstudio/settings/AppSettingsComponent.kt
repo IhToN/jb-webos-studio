@@ -18,13 +18,13 @@ class AppSettingsComponent {
 
     init {
         myAresCliPathText.addBrowseFolderListener(
-            "Select Ares CLI Folder",
+            "Select @webos-tools/cli Folder",
             null,
             null,
             FileChooserDescriptorFactory.createSingleFolderDescriptor()
         )
         panel = FormBuilder.createFormBuilder()
-            .addLabeledComponent(JBLabel("Ares CLI Folder"), myAresCliPathText, 1, false)
+            .addLabeledComponent(JBLabel("@webos-tools/cli Folder"), myAresCliPathText, 1, false)
             .addComponentFillVertically(JPanel(), 0)
             .panel
     }

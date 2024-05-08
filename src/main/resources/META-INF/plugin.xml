@@ -1,7 +1,8 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.atalgaba.jbwebosstudio</id>
-    <name>WebOS Studio</name>
+    <name>webOS Studio</name>
+    <category>JavaScript Frameworks and Tools</category>
     <vendor>ATAlgaba</vendor>
 
     <depends>com.intellij.modules.platform</depends>
@@ -13,7 +14,7 @@
         <applicationService
             serviceImplementation="com.atalgaba.jbwebosstudio.settings.AppSettingsState" />
 
-        <applicationConfigurable displayName="WebOS Studio"
+        <applicationConfigurable displayName="webOS Studio"
             id="com.atalgaba.ApplicationSettingsConfigurable"
             instance="com.atalgaba.jbwebosstudio.settings.AppSettingsConfigurable"
             parentId="tools" />
@@ -21,7 +22,7 @@
 
     <actions>
         <group icon="/icons/LG_symbol.svg" id="com.atalgaba.jbwebosstudio.actions.GroupedActions"
-            popup="true" text="WebOS Studio">
+            popup="true" text="webOS Studio">
             <add-to-group anchor="last" group-id="ProjectViewPopupMenu" />
         </group>
         <action class="com.atalgaba.jbwebosstudio.actions.AresGenerate"
