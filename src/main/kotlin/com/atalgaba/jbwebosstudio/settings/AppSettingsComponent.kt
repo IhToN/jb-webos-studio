@@ -3,7 +3,6 @@ package com.atalgaba.jbwebosstudio.settings
 
 import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory
 import com.intellij.openapi.ui.TextFieldWithBrowseButton
-import com.intellij.ui.components.JBCheckBox
 import com.intellij.ui.components.JBLabel
 import com.intellij.util.ui.FormBuilder
 import javax.swing.JComponent
@@ -17,12 +16,14 @@ class AppSettingsComponent {
     private val myAresCliPathText = TextFieldWithBrowseButton()
 
     init {
+        @Suppress("DialogTitleCapitalization")
         myAresCliPathText.addBrowseFolderListener(
             "Select @webos-tools/cli Folder",
             null,
             null,
             FileChooserDescriptorFactory.createSingleFolderDescriptor()
         )
+        @Suppress("DialogTitleCapitalization")
         panel = FormBuilder.createFormBuilder()
             .addLabeledComponent(JBLabel("@webos-tools/cli Folder"), myAresCliPathText, 1, false)
             .addComponentFillVertically(JPanel(), 0)

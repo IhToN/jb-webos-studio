@@ -14,22 +14,23 @@ internal class AppSettingsConfigurable : Configurable {
 
     // A default constructor with no arguments is required because this implementation
     // is registered in an applicationConfigurable EP
-    override fun getDisplayName(): @Nls(capitalization = Nls.Capitalization.Title) String? {
+    override fun getDisplayName(): @Nls(capitalization = Nls.Capitalization.Title) String {
+        @Suppress("DialogTitleCapitalization")
         return "webOS Studio Settings"
     }
 
-    override fun getPreferredFocusedComponent(): JComponent? {
+    override fun getPreferredFocusedComponent(): JComponent {
         return mySettingsComponent!!.preferredFocusedComponent
     }
 
-    override fun createComponent(): JComponent? {
+    override fun createComponent(): JComponent {
         mySettingsComponent = AppSettingsComponent()
         return mySettingsComponent!!.panel
     }
 
     override fun isModified(): Boolean {
         val settings = instance
-        var modified = mySettingsComponent!!.aresCliPathText != settings.aresCliPath
+        val modified = mySettingsComponent!!.aresCliPathText != settings.aresCliPath
         return modified
     }
 

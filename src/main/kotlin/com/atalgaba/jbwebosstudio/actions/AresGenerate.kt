@@ -12,9 +12,10 @@ import org.jetbrains.plugins.terminal.TerminalView
 import java.io.IOException
 
 
+@Suppress("MissingActionUpdateThread")
 class AresGenerate : AnAction() {
     companion object {
-        val TAB_NAME = "Ares"
+        const val TAB_NAME = "Ares"
     }
 
     override fun update(event: AnActionEvent) {

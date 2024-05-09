@@ -8,9 +8,7 @@ import com.intellij.openapi.actionSystem.ActionPlaces
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
-import com.intellij.openapi.actionSystem.DefaultActionGroup
 import com.intellij.openapi.diagnostic.thisLogger
-import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.openapi.wm.ToolWindowManager
 import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.json.Json
@@ -21,9 +19,10 @@ import java.io.File
 import java.io.IOException
 
 
+@Suppress("MissingActionUpdateThread")
 class AresInstall : ActionGroup() {
     companion object {
-        val TAB_NAME = "Ares"
+        const val TAB_NAME = "Ares"
     }
 
     override fun update(event: AnActionEvent) {

@@ -1,7 +1,6 @@
 package com.atalgaba.jbwebosstudio
 
 import com.intellij.DynamicBundle
-import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.vfs.VirtualFile
 import org.jetbrains.annotations.NonNls
 import org.jetbrains.annotations.PropertyKey
@@ -11,6 +10,7 @@ private const val BUNDLE = "messages.WebOSStudio"
 
 object WebOSStudio : DynamicBundle(BUNDLE) {
 
+    @Suppress("unused")
     @JvmStatic
     fun message(@PropertyKey(resourceBundle = BUNDLE) key: String, vararg params: Any) =
         getMessage(key, *params)
