@@ -1,4 +1,4 @@
-# jb-webos-studio
+# webOS Studio
 
 ![Build](https://github.com/IhToN/jb-webos-studio/workflows/Build/badge.svg)
 [![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
