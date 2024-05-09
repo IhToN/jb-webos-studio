@@ -21,7 +21,7 @@
     </extensions>
 
     <actions>
-        <group icon="/icons/LG_symbol.svg" id="com.atalgaba.jbwebosstudio.actions.GroupedActions"
+        <group icon="/icons/wOS.svg" id="com.atalgaba.jbwebosstudio.actions.GroupedActions"
             popup="true" text="webOS Studio">
             <add-to-group anchor="last" group-id="ProjectViewPopupMenu" />
         </group>
