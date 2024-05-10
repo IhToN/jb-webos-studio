@@ -7,39 +7,51 @@
 
     <depends>com.intellij.modules.platform</depends>
     <depends>org.jetbrains.plugins.terminal</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>JavaScript</depends>
 
     <resource-bundle>messages.WebOSStudio</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
         <applicationService
-            serviceImplementation="com.atalgaba.jbwebosstudio.settings.AppSettingsState" />
+                serviceImplementation="com.atalgaba.jbwebosstudio.settings.AppSettingsState"/>
 
         <applicationConfigurable displayName="webOS Studio"
-            id="com.atalgaba.ApplicationSettingsConfigurable"
-            instance="com.atalgaba.jbwebosstudio.settings.AppSettingsConfigurable"
-            parentId="tools" />
+                                 id="com.atalgaba.ApplicationSettingsConfigurable"
+                                 instance="com.atalgaba.jbwebosstudio.settings.AppSettingsConfigurable"
+                                 parentId="tools"/>
+
+        <notificationGroup
+                id="webOSStudio.BalloonGroup"
+                displayType="BALLOON"
+                shouldLog="true"
+                toolWindowId="Event Log">
+            <notificationOptions displayId="ERROR"/>
+            <notificationOptions displayId="WARNING"/>
+            <notificationOptions displayId="INFORMATION"/>
+        </notificationGroup>
     </extensions>
 
     <actions>
         <group icon="/icons/wOS.svg" id="com.atalgaba.jbwebosstudio.actions.GroupedActions"
-            popup="true" text="webOS Studio">
-            <add-to-group anchor="last" group-id="ProjectViewPopupMenu" />
+               popup="true" text="webOS Studio">
+            <add-to-group anchor="last" group-id="ProjectViewPopupMenu"/>
         </group>
         <action class="com.atalgaba.jbwebosstudio.actions.AresGenerate"
-            icon="AllIcons.Actions.NewFolder" id="webos.ares.generate">
+                icon="AllIcons.Actions.NewFolder" id="webos.ares.generate">
             <add-to-group anchor="first"
-                group-id="com.atalgaba.jbwebosstudio.actions.GroupedActions" />
+                          group-id="com.atalgaba.jbwebosstudio.actions.GroupedActions"/>
         </action>
         <action class="com.atalgaba.jbwebosstudio.actions.AresPackage" icon="/icons/package.svg"
-            id="webos.ares.package">
+                id="webos.ares.package">
             <add-to-group anchor="after"
-                group-id="com.atalgaba.jbwebosstudio.actions.GroupedActions"
-                relative-to-action="webos.ares.generate" />
+                          group-id="com.atalgaba.jbwebosstudio.actions.GroupedActions"
+                          relative-to-action="webos.ares.generate"/>
         </action>
         <group class="com.atalgaba.jbwebosstudio.actions.AresInstall"
-            icon="AllIcons.Actions.Install" id="webos.ares.install" popup="true">
+               icon="AllIcons.Actions.Install" id="webos.ares.install" popup="true">
             <add-to-group anchor="first"
-                group-id="com.atalgaba.jbwebosstudio.actions.GroupedActions" />
+                          group-id="com.atalgaba.jbwebosstudio.actions.GroupedActions"/>
         </group>
     </actions>
 </idea-plugin>
