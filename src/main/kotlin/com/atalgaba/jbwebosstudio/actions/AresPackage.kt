@@ -18,10 +18,6 @@ import java.io.IOException
 
 @Suppress("MissingActionUpdateThread")
 class AresPackage : AnAction() {
-    companion object {
-        const val TAB_NAME = "Ares"
-    }
-
     override fun update(event: AnActionEvent) {
         val project = event.project
         if (event.place == ActionPlaces.PROJECT_VIEW_POPUP && project != null) {
@@ -40,7 +36,7 @@ class AresPackage : AnAction() {
 
                     val exceptionRef: Ref<RuntimeException> = Ref.create(null)
 
-                    val npmProject = DefaultProjectFactory.getInstance().defaultProject;
+                    val npmProject = DefaultProjectFactory.getInstance().defaultProject
 
                     val npxCommand = "ares-package"
                     val commandLine = CommandLineUtil.createNpxCommandLine(
@@ -59,7 +55,7 @@ class AresPackage : AnAction() {
                     ) {
                         thisLogger().error("${commandLine.commandLineString} couldn't be executed")
                     }
-                    val exception = exceptionRef.get();
+                    val exception = exceptionRef.get()
                     if (exception != null) {
                         throw exception
                     }

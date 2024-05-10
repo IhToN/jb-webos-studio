@@ -78,7 +78,7 @@ class AresInstall : ActionGroup() {
                                 ?: throw IOException("Cannot create package for non existing folder")
                             val exceptionRef: Ref<RuntimeException> = Ref.create(null)
 
-                            val npmProject = DefaultProjectFactory.getInstance().defaultProject;
+                            val npmProject = DefaultProjectFactory.getInstance().defaultProject
 
                             val npxCommand = "ares-install"
                             val commandLine = CommandLineUtil.createNpxCommandLine(
@@ -97,7 +97,7 @@ class AresInstall : ActionGroup() {
                             ) {
                                 thisLogger().error("${commandLine.commandLineString} couldn't be executed")
                             }
-                            val exception = exceptionRef.get();
+                            val exception = exceptionRef.get()
                             if (exception != null) {
                                 throw exception
                             }

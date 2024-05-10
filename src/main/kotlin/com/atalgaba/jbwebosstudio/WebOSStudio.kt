@@ -46,7 +46,7 @@ object WebOSStudio : DynamicBundle(BUNDLE) {
             val notification = notificationGroup.createNotification(title, notificationContent, type)
 
             // Add a notification listener to show details
-            val showDetailsAction = object : NotificationAction("Show Details") {
+            val showDetailsAction = object : NotificationAction("Show details") {
                 override fun actionPerformed(e: AnActionEvent, notification: Notification) {
                     val details = content.joinToString("\n") // Concatenate the list of strings into a single string
                     val icon: Icon = when (type) {
