@@ -2,7 +2,9 @@
 package com.atalgaba.jbwebosstudio.settings
 
 import com.atalgaba.jbwebosstudio.settings.AppSettingsState.Companion.instance
+import com.intellij.javascript.nodejs.interpreter.NodeJsInterpreterRef
 import com.intellij.openapi.options.Configurable
+import com.intellij.openapi.util.text.StringUtil
 import org.jetbrains.annotations.Nls
 import javax.swing.JComponent
 
@@ -30,18 +32,32 @@ internal class AppSettingsConfigurable : Configurable {
 
     override fun isModified(): Boolean {
         val settings = instance
-        val modified = mySettingsComponent!!.aresCliPathText != settings.aresCliPath
-        return modified
+
+        return !StringUtil.equals(
+            StringUtil.notNullize(settings.aresCliPath),
+            StringUtil.notNullize(mySettingsComponent!!.aresCliPathText)
+        ) || !StringUtil.equals(
+            StringUtil.notNullize(settings.getNodeInterpreterRefName()),
+            StringUtil.notNullize(getNodeInterpreterRefName())
+        )
     }
 
     override fun apply() {
         val settings = instance
         settings.aresCliPath = mySettingsComponent!!.aresCliPathText
+        settings.nodeExePath = getNodeInterpreterRefName()
+    }
+
+    private fun getNodeInterpreterRefName(): String? {
+        val interpreterRef: NodeJsInterpreterRef = mySettingsComponent!!.nodeTextField.interpreterRef
+        return if (interpreterRef.isProjectRef) null else interpreterRef.referenceName
     }
 
     override fun reset() {
         val settings = instance
         mySettingsComponent!!.aresCliPathText = settings.aresCliPath
+        mySettingsComponent!!.nodeTextField.interpreterRef =
+            NodeJsInterpreterRef.create(settings.getNodeInterpreterRefName())
     }
 
     override fun disposeUIResources() {
