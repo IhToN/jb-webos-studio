@@ -1,15 +1,18 @@
 package com.atalgaba.jbwebosstudio.actions
 
 import com.atalgaba.jbwebosstudio.WebOSStudio
+import com.atalgaba.jbwebosstudio.util.CommandLineUtil
+import com.intellij.notification.NotificationType
 import com.intellij.openapi.actionSystem.ActionPlaces
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.diagnostic.thisLogger
-import com.intellij.openapi.wm.ToolWindowManager
-import org.jetbrains.plugins.terminal.ShellTerminalWidget
-import org.jetbrains.plugins.terminal.TerminalToolWindowFactory
-import org.jetbrains.plugins.terminal.TerminalView
+import com.intellij.openapi.progress.ProgressManager
+import com.intellij.openapi.project.DefaultProjectFactory
+import com.intellij.openapi.util.Ref
+import com.intellij.openapi.vfs.LocalFileSystem
+import java.io.File
 import java.io.IOException
 
 
@@ -32,21 +35,46 @@ class AresPackage : AnAction() {
             null -> thisLogger().error("Cannot run command in local terminal. Project is null")
             else -> {
                 try {
-                    val terminalView = TerminalView.getInstance(project)
-                    val window = ToolWindowManager.getInstance(project)
-                        .getToolWindow(TerminalToolWindowFactory.TOOL_WINDOW_ID)
-                    val contentManager = window?.contentManager
+                    val selectedFolder = event.getData(CommonDataKeys.VIRTUAL_FILE)?.path
+                        ?: throw IOException("Cannot create package for non existing folder")
 
-                    val widget = when (val content = contentManager?.findContent(TAB_NAME)) {
-                        null -> terminalView.createLocalShellWidget(project.basePath, TAB_NAME)
-                        else -> TerminalView.getWidgetByContent(content) as ShellTerminalWidget
+                    val exceptionRef: Ref<RuntimeException> = Ref.create(null)
+
+                    val npmProject = DefaultProjectFactory.getInstance().defaultProject;
+
+                    val npxCommand = "ares-package"
+                    val commandLine = CommandLineUtil.createNpxCommandLine(
+                        npmProject,
+                        npxCommand,
+                        listOf(selectedFolder),
+                        File(selectedFolder).parentFile
+                    )
+
+                    val action = CommandLineUtil.createExecuteCommandLineAction(
+                        npmProject, commandLine, exceptionRef, null
+                    )
+
+                    if (!ProgressManager.getInstance()
+                            .runProcessWithProgressSynchronously(action, "Creating IPK", true, null)
+                    ) {
+                        thisLogger().error("${commandLine.commandLineString} couldn't be executed")
+                    }
+                    val exception = exceptionRef.get();
+                    if (exception != null) {
+                        throw exception
                     }
 
-                    val selectedFolder = event.getData(CommonDataKeys.VIRTUAL_FILE)?.path
-                    widget.executeCommand("ares-package $selectedFolder")
+                    // Synchronize project files
+                    LocalFileSystem.getInstance().refreshIoFiles(
+                        listOf(File(selectedFolder).parentFile),
+                        false,
+                        true,
+                        null
+                    )
 
                 } catch (e: IOException) {
                     thisLogger().error("Cannot run command in local terminal. Error:$e")
+                    WebOSStudio.showNotification(NotificationType.ERROR, "Error", e.localizedMessage, project)
                 }
             }
         }
