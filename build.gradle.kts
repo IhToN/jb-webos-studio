@@ -26,7 +26,7 @@ repositories {
 dependencies {
 //    implementation(libs.annotations)
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
-    implementation("org.jetbrains:marketplace-zip-signer:0.1.8")
+    implementation("org.jetbrains:marketplace-zip-signer:0.1.24")
 }
 
 // Set the JVM language level used to build the project.
