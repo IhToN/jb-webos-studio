@@ -1,8 +1,8 @@
 package com.atalgaba.jbwebosstudio.actions
 
 import com.atalgaba.jbwebosstudio.WebOSStudio
+import com.atalgaba.jbwebosstudio.controllers.DeviceController
 import com.atalgaba.jbwebosstudio.models.Device
-import com.atalgaba.jbwebosstudio.settings.AppSettingsState
 import com.atalgaba.jbwebosstudio.util.CommandLineUtil
 import com.intellij.notification.NotificationType
 import com.intellij.openapi.actionSystem.*
@@ -12,8 +12,6 @@ import com.intellij.openapi.project.DefaultProjectFactory
 import com.intellij.openapi.util.Ref
 import com.intellij.openapi.vfs.LocalFileSystem
 import com.intellij.openapi.wm.ToolWindowManager
-import kotlinx.serialization.builtins.ListSerializer
-import kotlinx.serialization.json.Json
 import org.jetbrains.plugins.terminal.ShellTerminalWidget
 import org.jetbrains.plugins.terminal.TerminalToolWindowFactory
 import org.jetbrains.plugins.terminal.TerminalView
@@ -60,13 +58,10 @@ class AresInstall : ActionGroup() {
         }
     }
 
-    private val json = Json { ignoreUnknownKeys = true }
+
 
     override fun getChildren(e: AnActionEvent?): Array<AnAction> {
-        val aresCliPath = AppSettingsState.instance.aresCliPath
-        val jsonFilePath = "$aresCliPath/files/conf/novacom-devices.json"
-        val jsonContent = File(jsonFilePath).readText()
-        val devices: List<Device> = json.decodeFromString(ListSerializer(Device.serializer()), jsonContent)
+        val devices: List<Device> = DeviceController().getDevices()
         val actions = mutableListOf<AnAction>()
         devices.forEach {
             actions.add(object : AnAction(it.name) {
