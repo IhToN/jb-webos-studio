@@ -1,8 +1,8 @@
 # webOS Studio
 
 ![Build](https://github.com/IhToN/jb-webos-studio/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/com.atalgaba.jbwebosstudio.svg)](https://plugins.jetbrains.com/plugin/com.atalgaba.jbwebosstudio)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/com.atalgaba.jbwebosstudio.svg)](https://plugins.jetbrains.com/plugin/com.atalgaba.jbwebosstudio)
+[![Version](https://img.shields.io/jetbrains/plugin/v/com.atalgaba.jbwebosstudio.svg)](https://plugins.jetbrains.com/plugin/24375-webos-studio/)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/com.atalgaba.jbwebosstudio.svg)](https://plugins.jetbrains.com/plugin/24375-webos-studio/)
 
 <!-- Plugin description -->
 <h3>Accelerate SmartTV App Development with webOS Studio</h3>
