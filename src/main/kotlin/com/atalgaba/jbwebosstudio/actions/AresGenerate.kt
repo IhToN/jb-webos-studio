@@ -1,9 +1,6 @@
 package com.atalgaba.jbwebosstudio.actions
 
-import com.intellij.openapi.actionSystem.ActionPlaces
-import com.intellij.openapi.actionSystem.AnAction
-import com.intellij.openapi.actionSystem.AnActionEvent
-import com.intellij.openapi.actionSystem.CommonDataKeys
+import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.wm.ToolWindowManager
 import org.jetbrains.plugins.terminal.ShellTerminalWidget
@@ -12,10 +9,13 @@ import org.jetbrains.plugins.terminal.TerminalView
 import java.io.IOException
 
 
-@Suppress("MissingActionUpdateThread")
 class AresGenerate : AnAction() {
     companion object {
         const val TAB_NAME = "Ares"
+    }
+
+    override fun getActionUpdateThread(): ActionUpdateThread {
+        return ActionUpdateThread.BGT
     }
 
     override fun update(event: AnActionEvent) {

@@ -3,10 +3,7 @@ package com.atalgaba.jbwebosstudio.actions
 import com.atalgaba.jbwebosstudio.WebOSStudio
 import com.atalgaba.jbwebosstudio.util.CommandLineUtil
 import com.intellij.notification.NotificationType
-import com.intellij.openapi.actionSystem.ActionPlaces
-import com.intellij.openapi.actionSystem.AnAction
-import com.intellij.openapi.actionSystem.AnActionEvent
-import com.intellij.openapi.actionSystem.CommonDataKeys
+import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.progress.ProgressManager
 import com.intellij.openapi.project.DefaultProjectFactory
@@ -16,8 +13,11 @@ import java.io.File
 import java.io.IOException
 
 
-@Suppress("MissingActionUpdateThread")
 class AresPackage : AnAction() {
+    override fun getActionUpdateThread(): ActionUpdateThread {
+        return ActionUpdateThread.BGT
+    }
+
     override fun update(event: AnActionEvent) {
         val project = event.project
         if (event.place == ActionPlaces.PROJECT_VIEW_POPUP && project != null) {

@@ -19,10 +19,13 @@ import java.io.File
 import java.io.IOException
 
 
-@Suppress("MissingActionUpdateThread")
 class AresInstall : ActionGroup() {
     companion object {
         const val TAB_NAME = "Ares"
+    }
+
+    override fun getActionUpdateThread(): ActionUpdateThread {
+        return ActionUpdateThread.BGT
     }
 
     override fun update(event: AnActionEvent) {
