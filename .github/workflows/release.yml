@@ -24,6 +24,12 @@ jobs:
         with:
           ref: ${{ github.event.release.tag_name }}
 
+      # Generate Changelog based on Conventional Commits
+      - name: Generate Changelog based on Conventional Commits
+        uses: smichard/conventional_changelog@2.0.0
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       # Set up Java environment for the next steps
       - name: Setup Java
         uses: actions/setup-java@v4
