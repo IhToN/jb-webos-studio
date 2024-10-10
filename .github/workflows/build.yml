@@ -48,12 +48,16 @@ jobs:
 
       # Set Git User Info
       - name: Set Git User Info
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
 
       # Commit Changelog
       - name: Commit Changelog
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git add CHANGELOG.md
           git commit -m "docs: :robot: changelog file generated" || echo "No changes to commit"
