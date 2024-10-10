@@ -240,6 +240,12 @@ jobs:
       - name: Fetch Sources
         uses: actions/checkout@v4
 
+      # Generate Changelog based on Conventional Commits
+      - name: Generate Changelog based on Conventional Commits
+        uses: smichard/conventional_changelog@2.0.0
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       # Remove old release drafts by using the curl request for the available releases with a draft flag
       - name: Remove Old Release Drafts
         env:
