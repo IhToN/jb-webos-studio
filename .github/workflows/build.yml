@@ -55,6 +55,12 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
+      # Generate Changelog based on Conventional Commits
+      - name: Generate Changelog based on Conventional Commits
+        uses: smichard/conventional_changelog@2.0.0
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       # Set environment variables
       - name: Export Properties
         id: properties
@@ -248,6 +254,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          
+          git commit -am "docs(bot): update changelog - ${{ needs.build.outputs.version }}"
+          git push --set-upstream origin main
+          
           gh release create "v${{ needs.build.outputs.version }}" \
             --draft \
             --title "v${{ needs.build.outputs.version }}" \
