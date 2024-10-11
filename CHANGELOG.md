@@ -7,7 +7,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## Unreleased changes
 
 ### Documentation
+- update changelog - 0.1.5 [`1eeb72e`](https://github.com/IhToN/jb-webos-studio/commit/1eeb72e)
 - patch changelop to version 0.1.5 [`dc7b3cf`](https://github.com/IhToN/jb-webos-studio/commit/dc7b3cf)
+
+### Build
+- Bump org.jetbrains.kotlin.jvm from 2.0.20 to 2.0.21 [`0b5b66b`](https://github.com/IhToN/jb-webos-studio/commit/0b5b66b)
+- Bump gradle/actions from 3 to 4 [`47c9e02`](https://github.com/IhToN/jb-webos-studio/commit/47c9e02)
+- Bump smichard/conventional_changelog from 2.0.0 to 2.0.6 [`912f680`](https://github.com/IhToN/jb-webos-studio/commit/912f680)
+
+### Other
+- Merge pull request #44 from IhToN/dependabot/github_actions/smichard/conventional_changelog-2.0.6 [`e2d0552`](https://github.com/IhToN/jb-webos-studio/commit/e2d0552)
+- Merge pull request #45 from IhToN/dependabot/github_actions/gradle/actions-4 [`2fbb61b`](https://github.com/IhToN/jb-webos-studio/commit/2fbb61b)
+- Merge pull request #46 from IhToN/dependabot/gradle/org.jetbrains.kotlin.jvm-2.0.21 [`a14442e`](https://github.com/IhToN/jb-webos-studio/commit/a14442e)
 
 ## v0.1.5 (2024-10-10)
 
