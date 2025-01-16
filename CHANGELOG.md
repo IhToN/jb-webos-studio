@@ -7,15 +7,34 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## Unreleased changes
 
 ### Documentation
+- update changelog - 0.1.5 [`80095b7`](https://github.com/IhToN/jb-webos-studio/commit/80095b7)
 - update changelog - 0.1.5 [`1eeb72e`](https://github.com/IhToN/jb-webos-studio/commit/1eeb72e)
 - patch changelop to version 0.1.5 [`dc7b3cf`](https://github.com/IhToN/jb-webos-studio/commit/dc7b3cf)
 
 ### Build
+- Bump org.jetbrains.qodana from 2024.2.3 to 2024.3.4 [`837af6d`](https://github.com/IhToN/jb-webos-studio/commit/837af6d)
+- Bump org.jetbrains.kotlinx.kover from 0.8.3 to 0.9.1 [`ff99da1`](https://github.com/IhToN/jb-webos-studio/commit/ff99da1)
+- Bump JetBrains/qodana-action from 2024.2 to 2024.3 [`6c1e6ef`](https://github.com/IhToN/jb-webos-studio/commit/6c1e6ef)
+- Bump org.gradle.toolchains.foojay-resolver-convention [`5457f70`](https://github.com/IhToN/jb-webos-studio/commit/5457f70)
+- Bump org.jetbrains.kotlin.jvm from 2.0.21 to 2.1.0 [`9f66db5`](https://github.com/IhToN/jb-webos-studio/commit/9f66db5)
+- Bump codecov/codecov-action from 4 to 5 [`5a0fc82`](https://github.com/IhToN/jb-webos-studio/commit/5a0fc82)
+- Bump org.jetbrains:annotations from 26.0.0 to 26.0.1 [`7671c8e`](https://github.com/IhToN/jb-webos-studio/commit/7671c8e)
 - Bump org.jetbrains.kotlin.jvm from 2.0.20 to 2.0.21 [`0b5b66b`](https://github.com/IhToN/jb-webos-studio/commit/0b5b66b)
 - Bump gradle/actions from 3 to 4 [`47c9e02`](https://github.com/IhToN/jb-webos-studio/commit/47c9e02)
 - Bump smichard/conventional_changelog from 2.0.0 to 2.0.6 [`912f680`](https://github.com/IhToN/jb-webos-studio/commit/912f680)
 
+### Chore
+- increase version to 0.1.6 [`7950724`](https://github.com/IhToN/jb-webos-studio/commit/7950724)
+- remove pluginUntilBuild property [`16beea8`](https://github.com/IhToN/jb-webos-studio/commit/16beea8)
+
 ### Other
+- Merge pull request #57 from IhToN/dependabot/gradle/org.jetbrains.qodana-2024.3.4 [`d863707`](https://github.com/IhToN/jb-webos-studio/commit/d863707)
+- Merge pull request #52 from IhToN/dependabot/gradle/org.gradle.toolchains.foojay-resolver-convention-0.9.0 [`6263a24`](https://github.com/IhToN/jb-webos-studio/commit/6263a24)
+- Merge pull request #51 from IhToN/dependabot/gradle/org.jetbrains.kotlin.jvm-2.1.0 [`ca0d523`](https://github.com/IhToN/jb-webos-studio/commit/ca0d523)
+- Merge pull request #50 from IhToN/dependabot/github_actions/codecov/codecov-action-5 [`707789d`](https://github.com/IhToN/jb-webos-studio/commit/707789d)
+- Merge pull request #54 from IhToN/dependabot/github_actions/JetBrains/qodana-action-2024.3 [`71864c9`](https://github.com/IhToN/jb-webos-studio/commit/71864c9)
+- Merge pull request #58 from IhToN/dependabot/gradle/org.jetbrains.kotlinx.kover-0.9.1 [`7d0a9d9`](https://github.com/IhToN/jb-webos-studio/commit/7d0a9d9)
+- Merge pull request #47 from IhToN/dependabot/gradle/org.jetbrains-annotations-26.0.1 [`8d29cc6`](https://github.com/IhToN/jb-webos-studio/commit/8d29cc6)
 - Merge pull request #44 from IhToN/dependabot/github_actions/smichard/conventional_changelog-2.0.6 [`e2d0552`](https://github.com/IhToN/jb-webos-studio/commit/e2d0552)
 - Merge pull request #45 from IhToN/dependabot/github_actions/gradle/actions-4 [`2fbb61b`](https://github.com/IhToN/jb-webos-studio/commit/2fbb61b)
 - Merge pull request #46 from IhToN/dependabot/gradle/org.jetbrains.kotlin.jvm-2.0.21 [`a14442e`](https://github.com/IhToN/jb-webos-studio/commit/a14442e)
