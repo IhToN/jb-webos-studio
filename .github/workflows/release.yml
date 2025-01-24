@@ -26,7 +26,7 @@ jobs:
 
       # Generate Changelog based on Conventional Commits
       - name: Generate Changelog based on Conventional Commits
-        uses: smichard/conventional_changelog@2.0.6
+        uses: smichard/conventional_changelog@2.0.10
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
