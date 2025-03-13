@@ -6,7 +6,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased changes
 
+### Build
+- Bump org.jetbrains:marketplace-zip-signer [`0225ffd`](https://github.com/IhToN/jb-webos-studio/commit/0225ffd)
+- Bump org.jetbrains.kotlin.jvm from 2.1.0 to 2.1.10 [`aa31684`](https://github.com/IhToN/jb-webos-studio/commit/aa31684)
+- Bump smichard/conventional_changelog from 2.0.6 to 2.0.10 [`fa1e182`](https://github.com/IhToN/jb-webos-studio/commit/fa1e182)
+- Bump org.jetbrains:annotations from 26.0.1 to 26.0.2 [`4dd9cb5`](https://github.com/IhToN/jb-webos-studio/commit/4dd9cb5)
+- Bump org.jetbrains.kotlinx:kotlinx-serialization-json [`45d3973`](https://github.com/IhToN/jb-webos-studio/commit/45d3973)
+
+### Other
+- Merge pull request #64 from IhToN/dependabot/gradle/org.jetbrains-marketplace-zip-signer-0.1.34 [`9ecfd44`](https://github.com/IhToN/jb-webos-studio/commit/9ecfd44)
+- Merge pull request #63 from IhToN/dependabot/gradle/org.jetbrains.kotlin.jvm-2.1.10 [`1f38417`](https://github.com/IhToN/jb-webos-studio/commit/1f38417)
+- Merge pull request #62 from IhToN/dependabot/github_actions/smichard/conventional_changelog-2.0.10 [`fe7f4fb`](https://github.com/IhToN/jb-webos-studio/commit/fe7f4fb)
+- Merge pull request #61 from IhToN/dependabot/gradle/org.jetbrains-annotations-26.0.2 [`12d6dda`](https://github.com/IhToN/jb-webos-studio/commit/12d6dda)
+- Merge pull request #59 from IhToN/dependabot/gradle/org.jetbrains.kotlinx-kotlinx-serialization-json-1.8.0 [`2e119fe`](https://github.com/IhToN/jb-webos-studio/commit/2e119fe)
+
+## v0.1.6 (2025-01-16)
+
 ### Documentation
+- update changelog - 0.1.6 [`01ec5a1`](https://github.com/IhToN/jb-webos-studio/commit/01ec5a1)
 - update changelog - 0.1.5 [`80095b7`](https://github.com/IhToN/jb-webos-studio/commit/80095b7)
 - update changelog - 0.1.5 [`1eeb72e`](https://github.com/IhToN/jb-webos-studio/commit/1eeb72e)
 - patch changelop to version 0.1.5 [`dc7b3cf`](https://github.com/IhToN/jb-webos-studio/commit/dc7b3cf)
